@@ -1,0 +1,78 @@
+.title {
+  margin-left: 16px;
+  font-weight: 700;
+  color: #333652;
+}
+
+.listContainer {
+  background-color: #e5e5e5;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+
+  margin: 0 auto;
+  width: 90%;
+  height: 20rem;
+
+  overflow-y: scroll;
+
+  div {
+    width: 59px;
+
+    span {
+      font-size: 0.6rem;
+      margin-bottom: -0.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+
+      width: 0.3rem;
+      height: 0.3rem;
+      padding: 0.6rem;
+
+      font-weight: 800;
+      color: whitesmoke;
+      background: #90adc6;
+    }
+  }
+}
+
+.bar {
+  margin-top: 0.25rem;
+  display: flex;
+  gap: 2.5px;
+
+  div {
+    height: 2px;
+  }
+}
+
+.pokeName {
+  font-family: spartan;
+  font-size: 0.6rem;
+  display: flex;
+  margin-top: 0.01rem;
+  color: #333652;
+}
+
+.colors {
+  --bug: #89960b;
+  --dark: #322c26;
+  --dragon: #6b57d2;
+  --fairy: #da93dd;
+  --fighting: #80311d;
+  --fire: #ec5d35;
+  --ghost: #ad6eec;
+  --grass: #68bb2b;
+  --ground: #d0b155;
+  --normal: #c3c0b8;
+  --poison: #924694;
+  --psychic: #da3063;
+  --steel: #8f8e9e;
+  --water: #5cc1ed;
+  --electric: #f4cb38;
+  --ice: #9bdefb;
+  --flying: #5d74d5;
+  --rock: #9d853c;
+}

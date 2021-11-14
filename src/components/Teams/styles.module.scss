@@ -1,0 +1,36 @@
+.title {
+  margin-left: 16px;
+  font-weight: 700;
+  color: #333652;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.teamContainer {
+  display: flex;
+  height: 12rem;
+
+  background-color: #e5e5e5;
+  flex-direction: column;
+
+  div {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 0.7rem;
+    gap: 1rem 0.5rem;
+  }
+}
+
+.buttonContainer {
+  margin-right: 1.5rem;
+  display: flex;
+  justify-content: flex-end;
+
+  button {
+    background-color: #e5e5e5;
+    border: none;
+    &:disabled {
+      opacity: 0.5;
+    }
+  }
+}
