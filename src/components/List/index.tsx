@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
+import { useSelectedPokemons } from '../../context/selectedPokemonsContext';
 import styles from './styles.module.scss';
 
 type TypePokemon = {
@@ -33,6 +34,7 @@ const colorsRelation: any = {
 
 export function List() {
   const [pokemons, setPokemons] = useState<TypePokemon[]>([]);
+  const { selectedPokemons, addPokemon } = useSelectedPokemons();
 
   useEffect(() => {
     async function loadPokemon() {
@@ -66,23 +68,35 @@ export function List() {
       <p className={styles.title}>Choose 6 Pokémons:</p>
 
       <div className={styles.listContainer}>
-        {pokemons.map(elem => (
-          <div key={elem.id}>
-            <span>{'#' + elem.id}</span>
+        {pokemons.map(pokemon => (
+          <div key={pokemon.id} onClick={() => addPokemon(pokemon)}>
+            <span>{'#' + pokemon.id}</span>
 
             <div className={styles.img}>
-              <Image src={elem.image} alt="pokemon" width={50} height={50} unoptimized />
-              <p className={styles.pokeName}>{elem.name}</p>
+              <Image src={pokemon.image} alt="pokemon" width={50} height={50} unoptimized />
+
+              <p className={styles.pokeName}>{pokemon.name}</p>
             </div>
 
             <div className={styles.bar}>
-              <div style={{ background: colorsRelation[elem.element1] }} />
-              {elem.element2 ? (
-                <div style={{ background: colorsRelation[elem.element2] }} />
+              <div style={{ background: colorsRelation[pokemon.element1] }} />
+              {pokemon.element2 ? (
+                <div style={{ background: colorsRelation[pokemon.element2] }} />
               ) : (
                 <div />
               )}
             </div>
+            {selectedPokemons.includes(pokemon) && (
+              <div className={styles.confirmation}>
+                <Image
+                  src="/assets/ConfirmationButton.svg"
+                  alt="confirmation"
+                  width={50}
+                  height={50}
+                  unoptimized
+                />
+              </div>
+            )}
           </div>
         ))}
       </div>

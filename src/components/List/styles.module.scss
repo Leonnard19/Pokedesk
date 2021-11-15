@@ -56,23 +56,8 @@
   color: #333652;
 }
 
-.colors {
-  --bug: #89960b;
-  --dark: #322c26;
-  --dragon: #6b57d2;
-  --fairy: #da93dd;
-  --fighting: #80311d;
-  --fire: #ec5d35;
-  --ghost: #ad6eec;
-  --grass: #68bb2b;
-  --ground: #d0b155;
-  --normal: #c3c0b8;
-  --poison: #924694;
-  --psychic: #da3063;
-  --steel: #8f8e9e;
-  --water: #5cc1ed;
-  --electric: #f4cb38;
-  --ice: #9bdefb;
-  --flying: #5d74d5;
-  --rock: #9d853c;
+.confirmation {
+  position: relative;
+  margin-top: -5rem;
+  opacity: 70%;
 }

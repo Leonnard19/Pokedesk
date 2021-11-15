@@ -1,0 +1,31 @@
+.title {
+  font-family: spartan;
+  font-weight: 800;
+  color: #333652;
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.teamContainer {
+  display: flex;
+  height: 100%;
+  margin-top: 0.5rem;
+
+  background-color: #e5e5e5;
+  flex-direction: column;
+
+  div {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 0.7rem;
+    gap: 1rem 0.5rem;
+  }
+}
+
+.bar {
+  border-bottom: 1px solid #333652;
+  margin: 1rem auto;
+  width: 90%;
+}

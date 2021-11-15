@@ -1,10 +1,13 @@
+import Link from 'next/link';
 import styles from './styles.module.scss';
 
-export function Header() {
+export function Header({ text }: { text: string }) {
   return (
     <div className={styles.mainHeader}>
       <div />
-      <h1>TEAMS</h1>
+      <Link passHref href={text === 'TEAMS' ? '/teams' : '/'}>
+        <h1>{text}</h1>
+      </Link>
     </div>
   );
 }

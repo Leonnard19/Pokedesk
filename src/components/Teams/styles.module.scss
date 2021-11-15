@@ -1,14 +1,26 @@
 .title {
-  margin-left: 16px;
   font-weight: 700;
   color: #333652;
   display: flex;
   gap: 0.5rem;
+  align-items: center;
+  margin-top: 1rem;
+
+  input {
+    font-family: spartan;
+    font-weight: 800;
+    margin-left: 1rem;
+    color: #333652;
+    border: none;
+    background-color: #e5e5e5;
+    width: 5rem;
+  }
 }
 
 .teamContainer {
   display: flex;
   height: 12rem;
+  margin-top: 0.5rem;
 
   background-color: #e5e5e5;
   flex-direction: column;
