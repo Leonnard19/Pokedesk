@@ -15,7 +15,7 @@ export default function Teams() {
       <div className={styles.teamContainer}>
         {teams.map(team => {
           return (
-            <>
+            <div key={team.title}>
               <div className={styles.title}>{team.title}</div>
 
               <div>
@@ -27,7 +27,7 @@ export default function Teams() {
                 <Pokeball pokemon={team.pokemons[5]} />
               </div>
               <div className={styles.bar}></div>
-            </>
+            </div>
           );
         })}
       </div>

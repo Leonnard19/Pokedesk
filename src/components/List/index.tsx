@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
-import { useSelectedPokemons } from '../../context/selectedPokemonsContext';
+import { useSelectedPokemons } from '../../context/SelectedPokemonsContext';
 import styles from './styles.module.scss';
 
 type TypePokemon = {

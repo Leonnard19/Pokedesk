@@ -2,7 +2,7 @@ import styles from './styles.module.scss';
 import Image from 'next/image';
 import { Pokeball } from '../Pokeball';
 import { useState } from 'react';
-import { useSelectedPokemons } from '../../context/selectedPokemonsContext';
+import { useSelectedPokemons } from '../../context/SelectedPokemonsContext';
 import { useTeamsContext } from '../../context/TeamsContext';
 
 export function Teams() {
