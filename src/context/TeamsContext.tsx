@@ -1,4 +1,5 @@
-import { createContext, ReactNode, useContext, useState } from 'react';
+import { createContext, ReactNode, useContext, useState } from "react";
+import { useSelectedPokemons } from "./SelectedPokemonsContext";
 
 type TypePokemon = {
   id: number;
@@ -22,14 +23,22 @@ const teamsContext = createContext({} as TypeTeamsContext);
 
 export function TeamsContextProvider({ children }: { children: ReactNode }) {
   const [teams, setTeams] = useState<TypeTeam[]>([]);
+  const { clearSelected } = useSelectedPokemons();
 
   function addTeam(team: TypeTeam) {
     const arr = [...teams];
+
     arr.push(team);
     setTeams(arr);
+
+    clearSelected();
   }
 
-  return <teamsContext.Provider value={{ teams, addTeam }}>{children}</teamsContext.Provider>;
+  return (
+    <teamsContext.Provider value={{ teams, addTeam }}>
+      {children}
+    </teamsContext.Provider>
+  );
 }
 
 export const useTeamsContext = () => useContext(teamsContext);

@@ -1,4 +1,4 @@
-import { createContext, ReactNode, useContext, useState } from 'react';
+import { createContext, ReactNode, useContext, useState } from "react";
 
 type TypePokemon = {
   id: number;
@@ -11,20 +11,32 @@ type TypePokemon = {
 type TypeSelectedPokemons = {
   selectedPokemons: TypePokemon[];
   addPokemon: (pokemon: TypePokemon) => void;
+  clearSelected: () => void;
 };
 
 const selectedPokemonsContext = createContext({} as TypeSelectedPokemons);
 
-export function SelectedPokemonsContextProvider({ children }: { children: ReactNode }) {
+export function SelectedPokemonsContextProvider({
+  children,
+}: {
+  children: ReactNode;
+}) {
   const [selectedPokemons, setSelectedPokemons] = useState<TypePokemon[]>([]);
+
+  function clearSelected() {
+    const arr: TypePokemon[] = [];
+    setSelectedPokemons(arr);
+  }
 
   function addPokemon(pokemon: TypePokemon) {
     const arr = [...selectedPokemons];
 
     if (selectedPokemons.includes(pokemon)) {
       const idx = arr.indexOf(pokemon);
+
       arr.splice(idx, 1);
       setSelectedPokemons(arr);
+
       return;
     }
 
@@ -37,7 +49,9 @@ export function SelectedPokemonsContextProvider({ children }: { children: ReactN
   }
 
   return (
-    <selectedPokemonsContext.Provider value={{ selectedPokemons, addPokemon }}>
+    <selectedPokemonsContext.Provider
+      value={{ selectedPokemons, addPokemon, clearSelected }}
+    >
       {children}
     </selectedPokemonsContext.Provider>
   );
