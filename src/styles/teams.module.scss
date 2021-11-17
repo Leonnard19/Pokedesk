@@ -1,16 +1,15 @@
 .title {
   font-family: spartan;
   font-weight: 800;
+  margin-left: 16px;
+  font-size: 0.8rem;
   color: #333652;
-  display: flex;
-  gap: 0.5rem;
-  align-items: center;
-  margin-top: 1rem;
 }
 
 .teamContainer {
   display: flex;
   height: 100%;
+  padding-top: 1rem;
 
   background-color: #e5e5e5;
   flex-direction: column;
@@ -26,5 +25,5 @@
 .bar {
   border-bottom: 1px solid #333652;
   margin: 1rem auto;
-  width: 90%;
+  width: 85%;
 }
