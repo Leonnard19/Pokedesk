@@ -24,9 +24,7 @@ export function Pokeball({ pokemon }: { pokemon?: TypePokemon }) {
       className={styles.container}
       onClick={editPokemon}
       style={
-        !window.location.href.includes("teams") &&
-        isEditing &&
-        isEditing !== pokemon?.id
+        isEditing && isEditing !== pokemon?.id
           ? {
               filter: "brightness(80%) grayscale(70%)",
             }
@@ -41,9 +39,7 @@ export function Pokeball({ pokemon }: { pokemon?: TypePokemon }) {
         <div
           className={styles.pokemonImg}
           style={
-            !window.location.href.includes("teams") &&
-            isEditing &&
-            isEditing === pokemon?.id
+            isEditing && isEditing === pokemon?.id
               ? {
                   filter: `drop-shadow(2px 4px 6px)`,
                 }
