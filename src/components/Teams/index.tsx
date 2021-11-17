@@ -7,7 +7,7 @@ import { useTeamsContext } from '../../context/TeamsContext';
 
 export function Teams() {
   const [text, setText] = useState('My Team');
-  const { selectedPokemons } = useSelectedPokemons();
+  const { selectedPokemons, setSelectedPokemons } = useSelectedPokemons();
   const { addTeam } = useTeamsContext();
 
   return (

@@ -4,18 +4,16 @@ import { useTeamsContext } from '../context/TeamsContext';
 import { Pokeball } from '../components/Pokeball';
 
 export default function Teams() {
-  const { teams, addTeam } = useTeamsContext();
-
-  console.log(teams);
+  const { teams } = useTeamsContext();
 
   return (
     <>
       <Header text="CREATE A NEW TEAM" />
 
       <div className={styles.teamContainer}>
-        {teams.map(team => {
+        {teams.map((team, index) => {
           return (
-            <div key={team.title}>
+            <div key={index}>
               <div className={styles.title}>{team.title}</div>
 
               <div>

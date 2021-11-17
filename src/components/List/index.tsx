@@ -74,7 +74,6 @@ export function List() {
 
             <div className={styles.img}>
               <Image src={pokemon.image} alt="pokemon" width={50} height={50} unoptimized />
-
               <p className={styles.pokeName}>{pokemon.name}</p>
             </div>
 
@@ -91,8 +90,8 @@ export function List() {
                 <Image
                   src="/assets/ConfirmationButton.svg"
                   alt="confirmation"
-                  width={50}
-                  height={50}
+                  width={45}
+                  height={76}
                   unoptimized
                 />
               </div>

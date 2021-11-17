@@ -52,12 +52,13 @@
   font-family: spartan;
   font-size: 0.6rem;
   display: flex;
+  position: relative;
   margin-top: 0.01rem;
   color: #333652;
 }
 
 .confirmation {
-  position: relative;
+  //position: relative;
   margin-top: -5rem;
   opacity: 70%;
 }
