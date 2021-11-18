@@ -1,7 +1,7 @@
-import Image from "next/image";
-import { useSelectedPokemons } from "../../context/SelectedPokemonsContext";
+import Image from 'next/image';
+import { useSelectedPokemons } from '../../context/SelectedPokemonsContext';
 
-import styles from "./styles.module.scss";
+import styles from './styles.module.scss';
 
 type TypePokemon = {
   image: string;
@@ -11,9 +11,16 @@ type TypePokemon = {
 
 export function Pokeball({ pokemon }: { pokemon?: TypePokemon }) {
   const { isEditing, setIsEditing } = useSelectedPokemons();
+  let url;
+
+  try {
+    url = window.location.href;
+  } catch (error) {
+    url = '';
+  }
 
   function editPokemon() {
-    if (window.location.href.includes("teams")) {
+    if (window.location.href.includes('teams')) {
       return;
     }
     isEditing ? setIsEditing(undefined) : setIsEditing(pokemon?.id);
@@ -24,9 +31,9 @@ export function Pokeball({ pokemon }: { pokemon?: TypePokemon }) {
       className={styles.container}
       onClick={editPokemon}
       style={
-        isEditing && isEditing !== pokemon?.id
+        !url.includes('teams') && isEditing && isEditing !== pokemon?.id
           ? {
-              filter: "brightness(80%) grayscale(70%)",
+              filter: 'brightness(80%) grayscale(70%)',
             }
           : {}
       }
@@ -39,22 +46,14 @@ export function Pokeball({ pokemon }: { pokemon?: TypePokemon }) {
         <div
           className={styles.pokemonImg}
           style={
-            isEditing && isEditing === pokemon?.id
+            !url.includes('teams') && isEditing && isEditing === pokemon?.id
               ? {
                   filter: `drop-shadow(2px 4px 6px)`,
                 }
               : {}
           }
         >
-          {
-            <Image
-              src={pokemon.image}
-              alt="img"
-              width={70}
-              height={70}
-              unoptimized
-            />
-          }
+          {<Image src={pokemon.image} alt="img" width={70} height={70} unoptimized />}
         </div>
       )}
     </div>

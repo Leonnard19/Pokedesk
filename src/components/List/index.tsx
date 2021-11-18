@@ -1,7 +1,8 @@
 import Image from 'next/image';
+import styles from './styles.module.scss';
+
 import { useEffect, useState } from 'react';
 import { useSelectedPokemons } from '../../context/SelectedPokemonsContext';
-import styles from './styles.module.scss';
 
 type TypePokemon = {
   id: number;
