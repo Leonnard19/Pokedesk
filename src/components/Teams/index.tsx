@@ -48,17 +48,12 @@ export function Teams() {
       </div>
 
       <div className={styles.buttonContainer}>
-        <button
-          disabled={!isEditing}
-          style={isEditing ? { cursor: 'pointer' } : {}}
-          onClick={removePokemon}
-        >
+        <button disabled={!isEditing} onClick={removePokemon}>
           <Image src="/assets/DeleteButton.svg" alt="delete" width={40} height={40} />
         </button>
         <button
           onClick={() => addTeam({ title: text, pokemons: selectedPokemons })}
           disabled={selectedPokemons.length !== 6}
-          style={selectedPokemons.length === 6 ? { cursor: 'pointer' } : {}}
         >
           <Image
             src="/assets/ConfirmationButton.svg"
