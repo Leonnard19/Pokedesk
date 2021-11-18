@@ -1,7 +1,7 @@
-import styles from "../styles/teams.module.scss";
-import { Header } from "../components/Header";
-import { useTeamsContext } from "../context/TeamsContext";
-import { Pokeball } from "../components/Pokeball";
+import styles from '../styles/teams.module.scss';
+import { Header } from '../components/Header';
+import { useTeamsContext } from '../context/TeamsContext';
+import { Pokeball } from '../components/Pokeball';
 
 export default function Teams() {
   const { teams } = useTeamsContext();
