@@ -1,8 +1,6 @@
 import Image from 'next/image';
 import { useSelectedPokemons } from '../../context/SelectedPokemonsContext';
 
-import styles from './styles.module.scss';
-
 type TypePokemon = {
   image: string;
   id: number;
@@ -28,7 +26,7 @@ export function Pokeball({ pokemon }: { pokemon?: TypePokemon }) {
 
   return (
     <div
-      className={styles.container}
+      className="flex items-center justify-center"
       onClick={editPokemon}
       style={
         !url.includes('teams') && isEditing && isEditing !== pokemon?.id
@@ -38,13 +36,15 @@ export function Pokeball({ pokemon }: { pokemon?: TypePokemon }) {
           : {}
       }
     >
-      <div>
-        <Image src="/assets/Pokeball1.svg" alt="img" width={65} height={65} />
-      </div>
-
+      <Image
+        src="/assets/Pokeball1.svg"
+        alt="img"
+        width={70}
+        height={70}
+      />
       {pokemon && (
         <div
-          className={styles.pokemonImg}
+          className="absolute"
           style={
             !url.includes('teams') && isEditing && isEditing === pokemon?.id
               ? {
@@ -53,7 +53,14 @@ export function Pokeball({ pokemon }: { pokemon?: TypePokemon }) {
               : {}
           }
         >
-          {<Image src={pokemon.image} alt="img" width={70} height={70} unoptimized />}
+          <Image
+            className=""
+            src={pokemon.image}
+            alt="img"
+            width={70}
+            height={70}
+            unoptimized
+          />
         </div>
       )}
     </div>

@@ -15,15 +15,12 @@ export default function Teams() {
           return (
             <div key={index}>
               <div className={styles.title}>{team.title}</div>
-
-              <div>
-                <Pokeball pokemon={team.pokemons[0]} />
-                <Pokeball pokemon={team.pokemons[1]} />
-                <Pokeball pokemon={team.pokemons[2]} />
-                <Pokeball pokemon={team.pokemons[3]} />
-                <Pokeball pokemon={team.pokemons[4]} />
-                <Pokeball pokemon={team.pokemons[5]} />
-              </div>
+              <Pokeball pokemon={team.pokemons[0]} />
+              <Pokeball pokemon={team.pokemons[1]} />
+              <Pokeball pokemon={team.pokemons[2]} />
+              <Pokeball pokemon={team.pokemons[3]} />
+              <Pokeball pokemon={team.pokemons[4]} />
+              <Pokeball pokemon={team.pokemons[5]} />
               <div className={styles.bar}></div>
             </div>
           );

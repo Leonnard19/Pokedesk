@@ -1,6 +1,4 @@
 import Image from 'next/image';
-import styles from './styles.module.scss';
-
 import { useEffect, useState } from 'react';
 import { useSelectedPokemons } from '../../context/SelectedPokemonsContext';
 
@@ -12,7 +10,7 @@ type TypePokemon = {
   element2?: string;
 };
 
-const colorsRelation: any = {
+const colorsRelation: { [key: string]: string } = {
   bug: '#89960b',
   dark: '#322c26',
   dragon: '#6b57d2',
@@ -66,37 +64,43 @@ export function List() {
 
   return (
     <>
-      <p className={styles.title}>Choose 6 Pokémons:</p>
+      <p className="font-bold p-4 text-lg text-slate-700 ">Choose 6 Pokémons:</p>
 
-      <div className={styles.listContainer}>
+      <div className="flex flex-wrap bg-indigo-300 px-4 py-2 mb-4 rounded-lg gap-8 mx-auto w-[90%] h-[30rem] overflow-y-scroll">
         {pokemons.map(pokemon => (
-          <div key={pokemon.id} onClick={() => addPokemon(pokemon)}>
-            <span>{'#' + pokemon.id}</span>
-
-            <div className={styles.img}>
+          <div className="w-14 relative" key={pokemon.id} onClick={() => addPokemon(pokemon)}>
+            <span className="flex text-xs font-semibold -mb-2 items-center justify-center w-6 h-6 rounded-full bg-indigo-500 text-slate-300">
+              {'#' + pokemon.id}
+            </span>
+            <div className="relative">
               <Image src={pokemon.image} alt="pokemon" width={50} height={50} unoptimized />
-              <p className={styles.pokeName}>{pokemon.name}</p>
-            </div>
-
-            <div className={styles.bar}>
-              <div style={{ background: colorsRelation[pokemon.element1] }} />
-              {pokemon.element2 ? (
-                <div style={{ background: colorsRelation[pokemon.element2] }} />
-              ) : (
-                <div />
+              <p className="text-xs font-semibold text-slate-700 text-nowrap">
+                {pokemon.name}
+              </p>
+              {selectedPokemons.includes(pokemon) && (
+                <div className="absolute top-0 opacity-70">
+                  <Image
+                    src="/assets/ConfirmationButton.svg"
+                    alt="confirmation"
+                    width={50}
+                    height={50}
+                    unoptimized
+                  />
+                </div>
               )}
             </div>
-            {selectedPokemons.includes(pokemon) && (
-              <div className={styles.confirmation}>
-                <Image
-                  src="/assets/ConfirmationButton.svg"
-                  alt="confirmation"
-                  width={45}
-                  height={76}
-                  unoptimized
+            <div className="flex mt-1 space-x-[2.5px]">
+              <div
+                className={`h-1 border border-black rounded ${!pokemon.element2 ? 'w-full' : 'w-7'}`}
+                style={{ background: colorsRelation[pokemon.element1] }}
+              />
+              {pokemon.element2 ? (
+                <div
+                  className="h-1 w-7 border border-black rounded"
+                  style={{ background: colorsRelation[pokemon.element2] }}
                 />
-              </div>
-            )}
+              ) : null}
+            </div>
           </div>
         ))}
       </div>

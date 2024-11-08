@@ -1,6 +1,4 @@
-import styles from './styles.module.scss';
 import Image from 'next/image';
-
 import { useState } from 'react';
 import { Pokeball } from '../Pokeball';
 import { useSelectedPokemons } from '../../context/SelectedPokemonsContext';
@@ -27,33 +25,36 @@ export function Teams() {
     }
   }
 
+  const addTeamButtonDisabled = selectedPokemons.length < 6 || !text;
+  const removeButtonDisabled = !isEditing;
+
   return (
     <>
-      <div className={styles.title}>
-        <input onChange={e => setText(e.target.value)} value={text} />
-        <div>
-          <Image src="/assets/Vector.svg" alt="edit" width={10} height={10} />
-        </div>
+      <div className="flex gap-2 items-center my-4 px-4">
+        <input
+          className="font-bold text-slate-700 bg-indigo-300 focus:outline-blue-500 text-center rounded"
+          onChange={e => setText(e.target.value)}
+          value={text}
+        />
+        <Image src="/assets/Vector.svg" alt="edit" width={14} height={14} />
       </div>
-
-      <div className={styles.teamContainer}>
-        <div>
-          <Pokeball pokemon={selectedPokemons[0]} />
-          <Pokeball pokemon={selectedPokemons[1]} />
-          <Pokeball pokemon={selectedPokemons[2]} />
-          <Pokeball pokemon={selectedPokemons[3]} />
-          <Pokeball pokemon={selectedPokemons[4]} />
-          <Pokeball pokemon={selectedPokemons[5]} />
-        </div>
+      <div className="flex flex-wrap justify-center h-48 pt-4 w-[85%] mx-auto bg-indigo-200 space-x-6">
+        {selectedPokemons.map(pokemon => (
+          <Pokeball key={pokemon.id} pokemon={pokemon} />
+        ))}
       </div>
-
-      <div className={styles.buttonContainer}>
-        <button disabled={!isEditing} onClick={removePokemon}>
+      <div className="flex justify-end px-4 space-x-2 rounded p-2">
+        <button
+          className={removeButtonDisabled ? 'opacity-50' : ''}
+          disabled={removeButtonDisabled}
+          onClick={removePokemon}
+        >
           <Image src="/assets/DeleteButton.svg" alt="delete" width={40} height={40} />
         </button>
         <button
+          className={addTeamButtonDisabled ? 'opacity-50' : ''}
           onClick={() => addTeam({ title: text, pokemons: selectedPokemons })}
-          disabled={selectedPokemons.length !== 6}
+          disabled={addTeamButtonDisabled}
         >
           <Image
             src="/assets/ConfirmationButton.svg"
