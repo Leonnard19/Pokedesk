@@ -6,15 +6,15 @@ interface Props {
 
 export function Header({ text }: Props) {
   return (
-    <div className="flex flex-col h-32 items-center justify-end bg-indigo-400">
-      <span className="mb-6 font-extrabold text-slate-800 text-3xl">Pokémon Team Builder</span>
-      <div className="h-[2px] w-[90%] bg-slate-900" />
-      <Link
-        className="cursor-pointer text-slate-700 font-extrabold text-xl"
-        passHref
-        href={text === 'TEAMS' ? '/teams' : '/'}
-      >
-        <h1 className="py-2">{text}</h1>
+    <div className="flex flex-col h-36 items-center justify-between bg-indigo-400 border-b border-indigo-900">
+      <span className="font-extrabold text-slate-800 text-3xl text-center mt-4">
+        Pokémon Team Builder
+      </span>
+      <div className="bar h-[2px] w-[90%] bg-slate-900" />
+      <Link className="cursor-pointer" passHref href={text === 'TEAMS' ? '/teams' : '/'}>
+        <h1 className="py-1 px-4 mb-2 rounded-md hover:text-slate-600 border border-indigo-900 hover:border-indigo-700 text-slate-700 font-extrabold text-xl">
+          {text}
+        </h1>
       </Link>
     </div>
   );

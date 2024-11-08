@@ -39,8 +39,9 @@ export function Pokeball({ pokemon }: { pokemon?: TypePokemon }) {
       <Image
         src="/assets/Pokeball1.svg"
         alt="img"
-        width={70}
-        height={70}
+        width={0}
+        height={0}
+        className="w-[70px] h-auto"
       />
       {pokemon && (
         <div
@@ -54,11 +55,11 @@ export function Pokeball({ pokemon }: { pokemon?: TypePokemon }) {
           }
         >
           <Image
-            className=""
             src={pokemon.image}
             alt="img"
-            width={70}
-            height={70}
+            width={0}
+            height={0}
+            className="w-[70px] h-auto"
             unoptimized
           />
         </div>

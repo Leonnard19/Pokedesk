@@ -4,7 +4,7 @@ import { Pokeball } from '../Pokeball';
 import { useSelectedPokemons } from '../../context/SelectedPokemonsContext';
 import { useTeamsContext } from '../../context/TeamsContext';
 
-export function Teams() {
+export function Team() {
   const [text, setText] = useState('My Team');
   const { selectedPokemons, setSelectedPokemons, isEditing, setIsEditing } =
     useSelectedPokemons();
@@ -38,7 +38,7 @@ export function Teams() {
         />
         <Image src="/assets/Vector.svg" alt="edit" width={14} height={14} />
       </div>
-      <div className="flex flex-wrap justify-center h-48 pt-4 w-[85%] mx-auto bg-indigo-200 space-x-6">
+      <div className="flex flex-wrap w-[90%] justify-center content-center mx-auto h-48 bg-indigo-200 py-4 p-3 space-x-6 space-y-2 rounded-md">
         {selectedPokemons.map(pokemon => (
           <Pokeball key={pokemon.id} pokemon={pokemon} />
         ))}

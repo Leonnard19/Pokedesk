@@ -72,7 +72,7 @@ export function List() {
             <span className="flex text-xs font-semibold -mb-2 items-center justify-center w-6 h-6 rounded-full bg-indigo-500 text-slate-300">
               {'#' + pokemon.id}
             </span>
-            <div className="relative">
+            <div className="relative cursor-pointer">
               <Image src={pokemon.image} alt="pokemon" width={50} height={50} unoptimized />
               <p className="text-xs font-semibold text-slate-700 text-nowrap">
                 {pokemon.name}

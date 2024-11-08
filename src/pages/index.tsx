@@ -1,12 +1,12 @@
 import { Header } from '../components/Header';
 import { List } from '../components/List';
-import { Teams } from '../components/Teams';
+import { Team } from '../components/Team';
 
 const Home = () => {
   return (
     <>
       <Header text="TEAMS" />
-      <Teams />
+      <Team />
       <List />
     </>
   );
