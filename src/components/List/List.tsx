@@ -1,39 +1,13 @@
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
-import { useSelectedPokemons } from '../../context/SelectedPokemonsContext';
-
-type TypePokemon = {
-  id: number;
-  name: string;
-  image: string;
-  element1: string;
-  element2?: string;
-};
-
-const colorsRelation: { [key: string]: string } = {
-  bug: '#89960b',
-  dark: '#322c26',
-  dragon: '#6b57d2',
-  fairy: '#da93dd',
-  fighting: '#80311d',
-  fire: '#ec5d35',
-  ghost: '#ad6eec',
-  grass: '#68bb2b',
-  ground: '#d0b155',
-  normal: '#c3c0b8',
-  poison: '#924694',
-  psychic: '#da3063',
-  steel: '#8f8e9e',
-  water: '#5cc1ed',
-  electric: '#f4cb38',
-  ice: '#9bdefb',
-  flying: '#5d74d5',
-  rock: '#9d853c',
-};
+import { TypePokemon } from '../../types';
+import { addPokemon, useSelectedPokemons } from '../../context/useSelectedPokemons';
+import { pokemonColorsRelation } from '../../utils';
 
 export function List() {
   const [pokemons, setPokemons] = useState<TypePokemon[]>([]);
-  const { selectedPokemons, addPokemon } = useSelectedPokemons();
+
+  const selectedPokemons = useSelectedPokemons(state => state.selectedPokemons);
 
   useEffect(() => {
     async function loadPokemon() {
@@ -64,19 +38,19 @@ export function List() {
 
   return (
     <>
-      <p className="font-bold p-4 text-lg text-slate-700 ">Choose 6 Pokémons:</p>
-
+      <p className="font-bold p-4 text-lg text-slate-700">Choose 6 Pokémons:</p>
       <div className="flex flex-wrap bg-indigo-300 px-4 py-2 mb-4 rounded-lg gap-8 mx-auto w-[90%] h-[30rem] overflow-y-scroll">
-        {pokemons.map(pokemon => (
+        {pokemons.map((pokemon: TypePokemon) => (
           <div className="w-14 relative" key={pokemon.id} onClick={() => addPokemon(pokemon)}>
             <span className="flex text-xs font-semibold -mb-2 items-center justify-center w-6 h-6 rounded-full bg-indigo-500 text-slate-300">
               {'#' + pokemon.id}
             </span>
             <div className="relative cursor-pointer">
-              <Image src={pokemon.image} alt="pokemon" width={50} height={50} unoptimized />
+              <Image src={pokemon.image} alt="pokemon" width={50} height={50} unoptimized draggable={false} />
               <p className="text-xs font-semibold text-slate-700 text-nowrap">
                 {pokemon.name}
               </p>
+              {/* check SVG*/}
               {selectedPokemons.includes(pokemon) && (
                 <div className="absolute top-0 opacity-70">
                   <Image
@@ -91,13 +65,15 @@ export function List() {
             </div>
             <div className="flex mt-1 space-x-[2.5px]">
               <div
-                className={`h-1 border border-black rounded ${!pokemon.element2 ? 'w-full' : 'w-7'}`}
-                style={{ background: colorsRelation[pokemon.element1] }}
+                className={`h-1 border border-black rounded ${
+                  !pokemon.element2 ? 'w-full' : 'w-7'
+                }`}
+                style={{ background: pokemonColorsRelation[pokemon.element1] }}
               />
               {pokemon.element2 ? (
                 <div
                   className="h-1 w-7 border border-black rounded"
-                  style={{ background: colorsRelation[pokemon.element2] }}
+                  style={{ background: pokemonColorsRelation[pokemon.element2] }}
                 />
               ) : null}
             </div>
