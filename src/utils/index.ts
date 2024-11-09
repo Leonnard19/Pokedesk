@@ -1,1 +1,1 @@
-export * from './PokemonColorsRelation';
+export * from './pokemonColorsRelation';
