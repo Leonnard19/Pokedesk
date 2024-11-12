@@ -28,7 +28,7 @@ export const Team = () => {
       <div className="flex flex-wrap justify-between p-4 gap-2">
         <div className="flex gap-2 items-center">
           <input
-            className="font-bold w-full text-slate-700 bg-indigo-300 focus:outline-blue-500 text-center rounded"
+            className="font-bold w-full max-w-48 text-slate-700 bg-indigo-300 focus:outline-blue-500 text-center rounded"
             onChange={e => setTeamName(e.target.value)}
             value={teamName}
             placeholder="Team name"
@@ -45,7 +45,7 @@ export const Team = () => {
           Reset
         </button>
       </div>
-      <div className="flex flex-wrap w-[90%] justify-center content-center mx-auto h-48 bg-indigo-200 py-4 p-3 space-x-6 space-y-2 rounded-md">
+      <div className="flex flex-wrap w-[90%] justify-center content-center mx-auto h-48 bg-indigo-200 py-4 px-1 space-x-5 space-y-2 rounded-md">
         {selectedPokemons.map((pokemon: TypePokemon) => (
           <Pokeball
             onSelectPokemon={() => highlightPokemon(pokemon.id)}
