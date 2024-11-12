@@ -21,12 +21,12 @@ export default function Teams() {
                     : index === pokemonTeams.length - 1
                     ? 'rounded-b-md'
                     : ''
-                } container flex flex-wrap bg-indigo-200 justify-between md:justify-center w-[90%] p-3 mx-auto space-x-6`}
+                } container flex flex-wrap bg-indigo-200 min-[585px]:justify-center w-[90%] py-2 px-1 mx-auto`}
               >
-                <span className="title font-bold text-sm text-slate-700 bg-indigo-300 h-6 p-2 mx-4 mb-4 flex items-center rounded-md">
+                <span className="title font-bold text-sm text-slate-700 bg-indigo-300 h-6 p-2 ml-4 mr-8 mb-4 flex items-center rounded-md">
                   {team.title}
                 </span>
-                <div className="team flex flex-wrap justify-center space-x-6 space-y-2">
+                <div className="team flex flex-wrap justify-center space-x-5 space-y-2">
                   {team.pokemons.map(pokemon => (
                     <Pokeball key={pokemon.id} pokemon={pokemon} />
                   ))}
