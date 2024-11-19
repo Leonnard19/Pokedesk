@@ -37,7 +37,7 @@ export const Team = () => {
         </div>
         <button
           onClick={() => removeAllPokemons()}
-          className={`flex cursor-pointer text-slate-100 font-semibold text-md bg-red-600 hover:bg-red-500 px-2 rounded ${
+          className={`flex cursor-pointer text-slate-100 font-semibold text-md bg-red-600 hover:bg-red-500 px-2 py-px rounded ${
             resetButtonDisabled ? 'opacity-50' : ''
           }`}
           disabled={resetButtonDisabled}
