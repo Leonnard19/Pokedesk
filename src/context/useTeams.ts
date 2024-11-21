@@ -10,13 +10,9 @@ const initialState: PokemonTeamsState = {
   pokemonTeams: [],
 };
 
-export const usePokemonTeams = createStore<PokemonTeamsState>(
-  initialState,
-  'pokemon_teams'
-  //    {
-  //   version: 1,
-  // }
-);
+export const usePokemonTeams = createStore<PokemonTeamsState>(initialState, 'pokemon_teams', {
+  version: 1,
+});
 
 export function addPokemonTeam(pokemon_team: TypePokemonTeam) {
   const teams = usePokemonTeams.getState().pokemonTeams;
