@@ -21,7 +21,7 @@ export default function Teams() {
                     : index === pokemonTeams.length - 1
                     ? 'rounded-b-md'
                     : ''
-                } container flex flex-wrap bg-indigo-200 min-[585px]:justify-center w-[90%] py-2 px-1 mx-auto`}
+                } container flex flex-wrap bg-indigo-200 min-[585px]:justify-center w-[90%] py-2 px-1 min-[386px]:px-5 mx-auto`}
               >
                 <span className="title font-bold text-sm text-slate-700 bg-indigo-300 h-6 p-2 ml-4 mr-8 mb-4 flex items-center rounded-md">
                   {team.title}
