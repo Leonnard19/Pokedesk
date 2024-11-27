@@ -7,7 +7,7 @@ export default function Teams() {
 
   return (
     <>
-      <Header text="CREATE A NEW TEAM" />
+      <Header text="Create a New Team" />
       <div className="flex flex-col h-full pt-4">
         {pokemonTeams.map((team, index) => {
           return (

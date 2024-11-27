@@ -45,7 +45,7 @@ export const Team = () => {
           Reset
         </button>
       </div>
-      <div className="flex flex-wrap w-[90%] justify-center content-center mx-auto h-48 bg-indigo-200 py-4 px-1 min-[386px]:px-5 space-x-5 space-y-2 rounded-md">
+      <div className="flex flex-wrap w-[90%] justify-center content-center mx-auto min-h-20 bg-indigo-200 py-4 px-1 min-[386px]:px-5 space-x-5 space-y-2 rounded-md">
         {selectedPokemons.map((pokemon: TypePokemon) => (
           <Pokeball
             onSelectPokemon={() => highlightPokemon(pokemon.id)}

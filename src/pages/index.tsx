@@ -5,7 +5,7 @@ import { Team } from '../components/Team';
 const Home = () => {
   return (
     <>
-      <Header text="TEAMS" />
+      <Header text="Teams" />
       <Team />
       <List />
     </>
